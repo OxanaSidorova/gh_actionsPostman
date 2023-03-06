@@ -35,13 +35,18 @@ jobs:
            curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
            postman login --with-api-key ${{secrets.API_KEY}}
            postman collection run "20898840-48c3bd97-31ea-4c44-b838-c1cc50ac75e7" -e "20898840-82eb4199-9056-4b9b-8e5e-c580ec0cdc79"
-           - name: Create Awesome Badge
-             uses: 
-              schneegans/dynamic-badges-action@v1.6.0
-              with:
-              auth: ${{ secrets.GIST_SECRET }}
-             gistID: 7f4894c0f99520d1a38942c7e50a17f1
-            filename: test.json
-            label: Hello
-            message: World
-            color: orange
+           
+           - if: ${{ matrix.node-version == '14.x' }}
+              - name: Create the Badge
+               uses: schneegans/dynamic-badges-action@v1.0.0
+             with:
+               auth: ${{ secrets.GIST_SECRET }}
+               gistID: 7f4894c0f99520d1a38942c7e50a17f1
+               filename: gh_actionsPostman__${{ env.BRANCH }}.json
+               label: Test Coverage
+               message: ${{ env.COVERAGE }}
+               color: green
+               namedLogo: jest
+         
+ 
+  
