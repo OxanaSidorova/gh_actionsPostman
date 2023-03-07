@@ -1,2 +1,5 @@
 # gh_actionsPostman
-[![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/OxanaSidorova/7f4894c0f99520d1a38942c7e50a17f1/raw/gh_actionsPostman__heads_main.json)]
+Task 13.2 
+added a building worflow badge 
+
+![Building Badge](https://img.shields.io/github/actions/workflow/status/OxanaSidorova/gh_actionsPostman/blank.yml)
